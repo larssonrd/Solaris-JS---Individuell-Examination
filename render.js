@@ -23,7 +23,6 @@ export function renderPlanets(data) {
     const newPlanetEl = document.createElement("div");
     newPlanetEl.className = "planet";
     newPlanetEl.id = planet.name.toLowerCase();
-    console.log(newPlanetEl);
     planetsEl.insertAdjacentElement("beforeend", newPlanetEl);
 
     newPlanetEl.addEventListener("click", function (event) {
