@@ -11,7 +11,6 @@ async function getPlanets() {
   try {
     renderSpinner();
     let res = await fetch("https://majazocom.github.io/Data/solaris.json");
-    console.log(res);
     if (!res.ok)
       throw new Error(
         `Fel vid hämtning av data (${res.status}). Försök igen senare.`
@@ -35,7 +34,6 @@ searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const inputValue = document.getElementById("search-input").value;
   searchPlanet(inputValue);
-  document.getElementById("search-input").value = ``;
 });
 
 function searchPlanet(inputValue) {
@@ -61,8 +59,9 @@ function searchPlanet(inputValue) {
       (planet) => planet.name.toLowerCase() === inputValue.toLowerCase()
     )
   ) {
+    document.getElementById("search-input").value = ``;
     renderError(
-      `Kan ej hitta någon planet som matchar söktermen: "${inputValue}".`
+      `Kan inte hitta någon planet som matchar söktermen: "${inputValue}".`
     );
   }
 }

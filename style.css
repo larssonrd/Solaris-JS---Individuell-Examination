@@ -77,29 +77,29 @@ h3 {
 
 #merkurius {
   background-color: #888888;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
 }
 
 #venus {
   background-color: #e7cdcd;
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 
 #jorden {
   background-color: #428ed4;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
 }
 
 #mars {
   background-color: #ef5f5f;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
 }
 
