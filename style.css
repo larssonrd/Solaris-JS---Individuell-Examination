@@ -56,11 +56,25 @@ h3 {
 .planet {
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 20px, inset -3px 3px 7px #141414,
+    inset -3px 3px 7px #141414;
+}
+
+.planet:nth-of-type(1) {
   box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 20px;
 }
 
 .planet:hover {
   transform: scale(1.2);
+}
+
+.planet:nth-child(n + 2):nth-child(-n + 5) {
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 20px, inset -3px 1px 5px #141414,
+    inset -3px 1px 5px #141414;
+}
+
+.planet:nth-child(n + 2):nth-child(-n + 5):hover {
+  transform: scale(1.5);
 }
 
 #solen {

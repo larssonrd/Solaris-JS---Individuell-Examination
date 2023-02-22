@@ -25,7 +25,7 @@ export function renderPlanets(data) {
     newPlanetEl.id = planet.name.toLowerCase();
     planetsEl.insertAdjacentElement("beforeend", newPlanetEl);
 
-    newPlanetEl.addEventListener("click", function (event) {
+    newPlanetEl.addEventListener("click", function () {
       renderPlanet(planet, index);
     });
   });

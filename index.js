@@ -1,6 +1,7 @@
 import { renderError, renderPlanet, renderPlanets, renderSpinner } from "./render.js";
 
 export let planetData;
+const searchBtn = document.getElementById("search-btn");
 
 async function getPlanets() {
   try {
@@ -17,7 +18,6 @@ getPlanets();
 
 //////////////////// Sökfunktion ///////////////////////////
 
-const searchBtn = document.getElementById("search-btn");
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const inputValue = document.getElementById("search-input").value;
@@ -25,21 +25,17 @@ searchBtn.addEventListener("click", function (e) {
 });
 
 function searchPlanet(inputValue) {
-  let planetIndex;
-  if (planetData.some((planet) => planet.name.toLowerCase() === inputValue.toLowerCase())) {
-    const result = planetData.filter((planet, index) => {
-      if (planet.name.toLowerCase() === inputValue.toLowerCase()) {
-        planetIndex = index;
-        return planet;
-      }
-    });
+  const planet = planetData.find(
+    (planet) => planet.name.toLowerCase() === inputValue.toLowerCase()
+  );
 
-    const [planet] = result;
+  if (planet) {
+    const planetIndex = planetData.indexOf(planet);
     renderPlanet(planet, planetIndex);
   }
 
-  if (!planetData.some((planet) => planet.name.toLowerCase() === inputValue.toLowerCase())) {
-    document.getElementById("search-input").value = ``;
+  if (!planet) {
     renderError(`Kan inte hitta någon planet som matchar söktermen: "${inputValue}".`);
+    document.getElementById("search-input").value = ``;
   }
 }
