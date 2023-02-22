@@ -75,7 +75,7 @@ export function renderPlanet(planet, index) {
             <h4>MÅNAR</h4>
             <p>${
               planet.moons.length === 0
-                ? `Finns ingen måne`
+                ? ` ${planet.name} har inga månar.`
                 : planet.moons.join(", ")
             }</p>
           </div>

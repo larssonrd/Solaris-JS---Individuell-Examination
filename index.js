@@ -1,9 +1,4 @@
-import {
-  renderError,
-  renderPlanet,
-  renderPlanets,
-  renderSpinner,
-} from "./render.js";
+import { renderError, renderPlanet, renderPlanets, renderSpinner } from "./render.js";
 
 export let planetData;
 
@@ -11,16 +6,9 @@ async function getPlanets() {
   try {
     renderSpinner();
     let res = await fetch("https://majazocom.github.io/Data/solaris.json");
-    if (!res.ok)
-      throw new Error(
-        `Fel vid hämtning av data (${res.status}). Försök igen senare.`
-      );
+    if (!res.ok) throw new Error(`Fel vid hämtning av data (${res.status}). Försök igen senare.`);
     planetData = await res.json();
-
-    // För att visa att render spinner fungerar
-    setTimeout(function () {
-      renderPlanets(planetData);
-    }, 500);
+    renderPlanets(planetData);
   } catch (err) {
     renderError(err.message);
   }
@@ -38,11 +26,7 @@ searchBtn.addEventListener("click", function (e) {
 
 function searchPlanet(inputValue) {
   let planetIndex;
-  if (
-    planetData.some(
-      (planet) => planet.name.toLowerCase() === inputValue.toLowerCase()
-    )
-  ) {
+  if (planetData.some((planet) => planet.name.toLowerCase() === inputValue.toLowerCase())) {
     const result = planetData.filter((planet, index) => {
       if (planet.name.toLowerCase() === inputValue.toLowerCase()) {
         planetIndex = index;
@@ -54,14 +38,8 @@ function searchPlanet(inputValue) {
     renderPlanet(planet, planetIndex);
   }
 
-  if (
-    !planetData.some(
-      (planet) => planet.name.toLowerCase() === inputValue.toLowerCase()
-    )
-  ) {
+  if (!planetData.some((planet) => planet.name.toLowerCase() === inputValue.toLowerCase())) {
     document.getElementById("search-input").value = ``;
-    renderError(
-      `Kan inte hitta någon planet som matchar söktermen: "${inputValue}".`
-    );
+    renderError(`Kan inte hitta någon planet som matchar söktermen: "${inputValue}".`);
   }
 }
