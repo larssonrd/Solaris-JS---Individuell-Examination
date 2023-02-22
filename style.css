@@ -163,7 +163,7 @@ h3 {
 
 #search-input {
   font-family: "Roboto Condensed", sans-serif;
-  height: 70px;
+  height: 60px;
   text-align: center;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -177,8 +177,8 @@ h3 {
 
 #search-btn {
   font-family: "Roboto Condensed", sans-serif;
-  height: 70px;
-  width: 90px;
+  height: 60px;
+  width: 110px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-left: -5px;
