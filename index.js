@@ -1,12 +1,11 @@
 import { renderError, renderPlanet, renderPlanets, renderSpinner } from "./render.js";
 
-export let planetData = await getJSON();
-const searchBtn = document.getElementById("search-btn");
+export const planetData = await getJSON("https://majazocom.github.io/Data/solaris.json");
 
-async function getJSON() {
+async function getJSON(url) {
   try {
     renderSpinner();
-    const res = await fetch("https://majazocom.github.io/Data/solaris.json");
+    const res = await fetch(url);
     if (!res.ok) throw new Error(`Fel vid hämtning av data (${res.status}). Försök igen senare.`);
     const data = await res.json();
     return data;
@@ -18,6 +17,8 @@ async function getJSON() {
 if (planetData) renderPlanets(planetData);
 
 //////////////////// Sökfunktion ///////////////////////////
+
+const searchBtn = document.getElementById("search-btn");
 
 searchBtn.addEventListener("click", function (e) {
   e.preventDefault();
