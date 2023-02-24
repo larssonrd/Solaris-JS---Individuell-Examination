@@ -26,8 +26,7 @@ async function getJSON(url) {
 
 if (planetData) renderPlanets(planetData);
 
-//////////////////// Sökfunktion ///////////////////////////
-
+///// Sökfunktion /////
 const searchBtn = document.getElementById("search-btn");
 
 searchBtn.addEventListener("click", function (e) {

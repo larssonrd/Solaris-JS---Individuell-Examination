@@ -5,6 +5,7 @@ function getCurrPlanetIndex() {
   return +document.getElementById("planet-name").dataset.index;
 }
 
+//Lägger till eventlyssnare efter planet renderats
 export function addHandlerPagination() {
   const nextBtn = document.getElementById("pagination-next-btn");
   const prevBtn = document.getElementById("pagination-prev-btn");

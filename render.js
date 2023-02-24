@@ -2,6 +2,7 @@ import { addHandlerPagination, hidePaginationBtn } from "./pagination.js";
 
 const planetsEl = document.querySelector(".planets");
 
+//Loading-spinner vid långsam fetch
 export function renderSpinner() {
   const markup = `
     <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
@@ -10,13 +11,14 @@ export function renderSpinner() {
   planetsEl.innerHTML = markup;
 }
 
-//Error handling
+//Felhantering
 export function renderError(err) {
   const markup = `<p class="error-message">${err}</p>`;
   planetsEl.style.justifyContent = "center";
   planetsEl.innerHTML = markup;
 }
 
+//Rendera ut alla planeter
 export function renderPlanets(data) {
   planetsEl.innerHTML = ``;
   data.forEach((planet, index) => {
@@ -32,6 +34,7 @@ export function renderPlanets(data) {
   planetsEl.style.justifyContent = "space-between";
 }
 
+//Rendera ut enskild planet på egen sida
 export function renderPlanet(planet, index) {
   const { name, latinName, desc, circumference, distance, temp, moons } = planet;
   const markup = `
