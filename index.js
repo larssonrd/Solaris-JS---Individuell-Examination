@@ -1,12 +1,22 @@
-import { renderError, renderPlanet, renderPlanets, renderSpinner } from "./render.js";
+import {
+  renderError,
+  renderPlanet,
+  renderPlanets,
+  renderSpinner,
+} from "./render.js";
 
-export const planetData = await getJSON("https://majazocom.github.io/Data/solaris.json");
+export const planetData = await getJSON(
+  "https://majazocom.github.io/Data/solaris.json"
+);
 
 async function getJSON(url) {
   try {
     renderSpinner();
     const res = await fetch(url);
-    if (!res.ok) throw new Error(`Fel vid hämtning av data (${res.status}). Försök igen senare.`);
+    if (!res.ok)
+      throw new Error(
+        `Fel vid hämtning av data (${res.status}). Försök igen senare.`
+      );
     const data = await res.json();
     return data;
   } catch (err) {
@@ -37,7 +47,9 @@ function searchPlanet(inputValue) {
   }
 
   if (!planet) {
-    renderError(`Kan inte hitta någon planet som matchar söktermen: "${inputValue}".`);
+    renderError(
+      `Kan inte hitta någon planet som matchar söktermen: "${inputValue}".`
+    );
     document.getElementById("search-input").value = ``;
   }
 }

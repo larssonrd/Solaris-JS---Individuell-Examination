@@ -73,7 +73,11 @@ export function renderPlanet(planet, index) {
           </div>
           <div class="details-moons">
             <h4>MÅNAR</h4>
-            <p>${moons.length === 0 ? ` ${name} har inga månar.` : planet.moons.join(", ")}</p>
+            <p>${
+              moons.length === 0
+                ? ` ${name} har inga månar.`
+                : planet.moons.join(", ")
+            }</p>
           </div>
         </div>
         <div id="pagination-next">
@@ -81,8 +85,9 @@ export function renderPlanet(planet, index) {
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>`;
-  document.querySelector(".root").classList.add("planet-view");
-  document.querySelector(".root").innerHTML = markup;
+  document.querySelector(".planet-view").style.display = "flex";
+  document.querySelector(".planets-view").style.display = "none";
+  document.querySelector(".planet-view").innerHTML = markup;
   hidePaginationBtn();
   addHandlerPagination();
 }
