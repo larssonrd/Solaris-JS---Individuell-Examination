@@ -4,6 +4,8 @@ The site provides details about the planets in our solar system by fetching data
 
 This was our final exam for our Javascript course at Folkuniversitetet.
 
+Github Pages: https://larssonrd.github.io/Solaris-JS---Individuell-Examination/
+
 # Requirements
 - Use HTML, CSS, and Vanilla JS.
 - Be able to search for planets using text search.
